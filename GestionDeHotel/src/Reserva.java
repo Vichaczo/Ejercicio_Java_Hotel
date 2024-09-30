@@ -18,5 +18,20 @@ public class Reserva {
         this.hotel = hotel;
         this.habitacionReservada = habitacionReservada;
     }
-    
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public Habitacion getHabitacionReservada() {
+        return habitacionReservada;
+    }
+
+    public void setHabitacionReservada(Habitacion habitacionReservada) {
+        this.habitacionReservada = habitacionReservada;
+    }
 }

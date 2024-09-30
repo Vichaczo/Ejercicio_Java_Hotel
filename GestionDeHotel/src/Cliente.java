@@ -14,10 +14,10 @@ import java.util.List;
 public class Cliente {
     private String idCliente;
     private String nombre;
-    private ArrayList<String> reservasRealizadas;
+    private ArrayList<Reserva> reservasRealizadas;
 
     public Cliente() {
-        reservasRealizadas = new ArrayList<String>();
+        reservasRealizadas = new ArrayList<Reserva>();
     }
 
     public String getIdCliente() {
@@ -35,18 +35,20 @@ public class Cliente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public void agregarReserva(String numeroReserva)
+    public void agregarReserva(Reserva reser)
     {
-        reservasRealizadas.add(numeroReserva);
+        reservasRealizadas.add(reser);
     }
-    public void eliminarReserva(String numeroReserva)
+    public boolean eliminarReserva(String idHotel,String numeroHabitacion)
     {
-        for(String reserva: reservasRealizadas)
+        for(Reserva reser: reservasRealizadas)
         {
-            if()
+            if(reser.getHotel().getIdHotel().equals(idHotel) && reser.getHabitacionReservada().getNumeroHabitacion().equals(numeroHabitacion))
             {
-                reserva.equals(numeroReserva);
+                reservasRealizadas.remove(reser);  
+                return true;
             }
         }
+        return false;
     }
 }

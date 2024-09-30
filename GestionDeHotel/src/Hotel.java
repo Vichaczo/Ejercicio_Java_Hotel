@@ -13,14 +13,21 @@ import java.util.List;
 public class Hotel {
     private String idHotel;
     private String nombre;
-    private ArrayList<Habitacion> habitacionesDisponibles;
+    private ArrayList<Habitacion> habitacionesHotel;
 
     public Hotel() {
-        habitacionesDisponibles = new ArrayList<Habitacion>();
+        habitacionesHotel = new ArrayList<Habitacion>();
     }
-    public boolean agregar(Habitacion habitacion)
+
+    public Hotel(String idHotel, String nombre, ArrayList<Habitacion> habitacionesHotel) {
+        this.idHotel = idHotel;
+        this.nombre = nombre;
+        this.habitacionesHotel = habitacionesHotel;
+    }
+
+    public boolean agregarHabitacion(Habitacion habitacion)
     {
-        return habitacionesDisponibles.add(habitacion);
+        return habitacionesHotel.add(habitacion);
     }
 
     public String getIdHotel() {
@@ -41,8 +48,11 @@ public class Hotel {
 
     public void mostrarHabitacionesDisponibles()
     {
-        for(Habitacion habi:habitacionesDisponibles){
-            System.out.println(habi.getNumeroHabitacion());
+        for(Habitacion habi:habitacionesHotel){
+            if(habi.estaDisponible() == true)
+            {
+                System.out.println("La habitacion " + habi.getNumeroHabitacion() + "esta disponible, por un precio de $"+habi.getPrecioNoche()+" la noche");
+            }
         }
     }
 }

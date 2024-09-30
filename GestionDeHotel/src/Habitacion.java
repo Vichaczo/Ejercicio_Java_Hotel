@@ -37,7 +37,7 @@ public class Habitacion {
         this.precioNoche = precioNoche;
     }
 
-    public boolean isDisponible() {
+    public boolean estaDisponible() {
         return disponible;
     }
 
